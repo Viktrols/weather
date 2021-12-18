@@ -1,7 +1,10 @@
 import os
 
+from dotenv import load_dotenv
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
+
+load_dotenv() 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -14,7 +17,7 @@ class Config(object):
 
 # Constants for openweathermap
 API_URL = 'https://api.openweathermap.org/data/2.5/onecall'
-API_TOKEN = os.environ.get('API_KEY')
+API_TOKEN = os.getenv('API_KEY')
 DAYS_COUNT = 7
 UNITS = 'metric'
 EXCLUDE = 'current,minutely,hourly,alerts'
